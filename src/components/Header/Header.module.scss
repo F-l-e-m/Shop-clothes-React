@@ -1,0 +1,27 @@
+.header {
+  display: flex;
+  background: #eee;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+
+  .logo {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+  }
+
+  .info {
+    display: flex;
+    align-items: center;
+  }
+
+  .panel {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+
+  .cart {
+    width: 20px;
+  }
+}

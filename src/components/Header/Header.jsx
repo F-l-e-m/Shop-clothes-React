@@ -3,7 +3,7 @@ import cart from '../../assets/media/cart.svg';
 
 import styles from './Header.module.scss';
 
-function Header() {
+const Header = () => {
     return (
         <header className={styles.header}>
             <div className={styles.info}>

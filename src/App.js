@@ -1,7 +1,7 @@
 import './App.css';
 import Main from './Main/Main';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <Main />

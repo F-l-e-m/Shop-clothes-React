@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
 
-import Header from '../components/Header/Header';
-import CartList from '../components/CartList/CartList';
+import CartList from '../../components/CartList/CartList';
 
-import { Categories, Products } from "../api";
+import { Categories, Products } from "../../api";
 
 import styles from './Main.module.scss';
 
@@ -19,7 +18,6 @@ const Main = () => {
 
     return (
         <div className={styles.main}>
-            <Header />
             <CartList categories={categories} />
         </div>
     )

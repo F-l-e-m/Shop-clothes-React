@@ -1,14 +1,23 @@
 import { useState } from "react";
+import propTypes from './prop-types';
 
-import CartItem from '../CartItem/CartItem';
+import ProductItem from '../ProductItem/ProductItem';
 
-import styles from './CartList.module.scss';
+import styles from './ProductsList.module.scss';
 
-const CartList = ({ categories }) => {
+const ProductsList = ({ categories, products }) => {
     const [activeCategory, setActiveCategory] = useState(null);
     const handleClickCategory = (id) => {
         setActiveCategory(id);
     };
+
+    const productItems = products?.map(product => {
+        return (
+            <li key={product.id}>
+               <ProductItem {...product} />
+            </li>
+        );
+    })
 
     const categoryItems = categories?.map(category => {
         return (
@@ -21,7 +30,7 @@ const CartList = ({ categories }) => {
     });
 
     return (
-        <div className={styles.cartList}>
+        <div>
             <ul>
                 <li className={ activeCategory === null ? styles.category_item_active : null } >
                     <button onClick={() => setActiveCategory(null)}>
@@ -30,13 +39,13 @@ const CartList = ({ categories }) => {
                 </li>
                 { categoryItems }
             </ul>
-            <ul>
-                <li>
-                    <CartItem />
-                </li>
+            <ul className={styles.product_list}>
+                { productItems }
             </ul>
         </div>
     )
 }
 
-export default CartList;
+ProductsList.propTypes = propTypes;
+
+export default ProductsList;

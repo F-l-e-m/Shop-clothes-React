@@ -1,24 +1,29 @@
 import { useEffect, useState } from 'react';
 
-import CartList from '../../components/CartList/CartList';
+import CartList from '../../components/ProductsList/ProductsList';
 
 import { Categories, Products } from "../../api";
 
 import styles from './Main.module.scss';
+import ProductsList from "../../components/ProductsList/ProductsList";
 
 const Main = () => {
     const [categories, setCategories] = useState([]);
+    const [products, setProducts] = useState([]);
 
 
     useEffect(() => {
-        Categories.getAll().then(res => {
-            setCategories([...res.data]);
+        Categories.getAll().then(({ data }) => {
+            setCategories([...data]);
+        });
+        Products.getAll().then(({ data }) => {
+            setProducts([...data]);
         });
     }, []);
 
     return (
         <div className={styles.main}>
-            <CartList categories={categories} />
+            <ProductsList categories={categories} products={products} />
         </div>
     )
 }
